@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body style="display: flex;">
+    <div>
+      <canvas id="myChart" style="position: relative; height: 247px; width:435.5px;"></canvas>
+    </div>
+    <div>
+      <canvas id="myChart2" style="position: relative; height: 247px; width:435.5px;"></canvas>
+    </div>
+  </body>
+  <script>
+    const ctx = document.getElementById("myChart");
+    const ctx_2 = document.getElementById("myChart2");
+
+    new Chart(ctx, {
+      type: "line",
+      data: {
+        labels: ["12:00", "13:00", "14:00", "15:00", "16:00", "17:00"],
+        datasets: [
+          {
+            label: "Temperatura",
+            data: [30, 29, 28, 25, 22, 23],
+            borderWidth: 2,
+            borderColor: "rgb(255, 99, 132)",
+            backgroundColor: "rgba(255, 99, 132, 0.8)",
+          },
+          {
+            label: "Umidade",
+            data: [80, 82, 80, 85, 80, 83],
+            borderWidth: 2,
+            borderColor: "rgb(54, 162, 235)",
+            backgroundColor: "rgb(54, 162, 235, 0.8)",
+          },
+        ],
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true,
+          },
+        },
+      },
+    });
+
+    new Chart(ctx_2, {
+      type: "bar",
+      data: {
+        labels: ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho"],
+        datasets: [
+          {
+            label: "Temperatura Média",
+            data: [22, 24, 27, 23, 20, 18],
+            borderWidth: 2,
+            borderColor: "rgb(255, 99, 132)",
+            backgroundColor: "rgba(255, 99, 132, 0.8)",
+          },
+          {
+            label: "Umidade Média",
+            data: [90, 89, 93, 87, 88, 82],
+            borderWidth: 2,
+            borderColor: "rgb(54, 162, 235)",
+            backgroundColor: "rgb(54, 162, 235, 0.8)",
+          },
+        ],
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true,
+          },
+        },
+      },
+    });
+  </script>
+</html>
